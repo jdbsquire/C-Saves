@@ -1,13 +1,15 @@
 #ifndef CAR_H
 #define CAR_H
+
 #include <string>
 
-enum ADD_Ons {HEATED_SEATS=0, SUN_ROOF, AUDIO_SYSTEM, 
+using namespace std;
+
+enum ADD_ONS {HEATED_SEATS=0, SUN_ROOF, AUDIO_SYSTEM, 
               PERFORMANCE_PACKAFGE, WINDOW_TINT, ROOF_RACK}
 
 string ADD_ON_COSTS = "750 1250 1500 5000 500 900";
 
-using namespace std; 
 
 class Car {
     private:
@@ -17,7 +19,7 @@ class Car {
         int year;
         string color;
         int mileage;
-        double mgp;
+        double mpg;
         double price; 
         string addOns;
 
@@ -25,7 +27,7 @@ class Car {
         Car();
         Car(long theVin, string theModel, string theMake, int theYear,
             string theColor, int theMileage, double theMPG, double thePrice,
-            string theAddOns);
+            string theAddOns); 
     
 
     //getters
