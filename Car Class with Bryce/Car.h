@@ -1,60 +1,55 @@
 #ifndef CAR_H
 #define CAR_H
-
 #include <string>
+using std::string;
 
-using namespace std;
 
-enum ADD_ONS {HEATED_SEATS=0, SUN_ROOF, AUDIO_SYSTEM, 
-              PERFORMANCE_PACKAFGE, WINDOW_TINT, ROOF_RACK}
-
-string ADD_ON_COSTS = "750 1250 1500 5000 500 900";
-
+enum ADD_ONS { HEATED_SEATS=0, SUN_ROOF, AUDIO_SYSTEM, PERFORMANCE_PACKAGE, WINDOW_TINT, ROOF_RACK };
+const string ADD_ON_COSTS = "750 1250 1500 5000 500 900";
 
 class Car {
+    public:
+        Car();
+        Car(long theVin, string theModel, string theMake, int theYear, string theColor, 
+            int theMilage, int theMPG, double thePrice, string theAddOns, int theNumAddOns);
+
+        // getter functions
+        long getVIN();
+        string getModel();
+        string getMake();
+        int getYear();
+        string getColor();
+        int getMilage();
+        int getMPG();
+        double getPrice();
+        string getAddOn(int theAddOn);
+        int getAddOnPrice(int index);
+
+        // setter functions
+        void setVIN(long theVIN);
+        void setModel(string theModel);
+        void setMake(string theMake);
+        void setYear(int theYear);
+        void setColor(string theColor);
+        void setMilage(int theMilage);
+        void setMPG(int theMPG);
+        void setPrice(double thePrice);
+
+        void selectAddOn(int addOnId);
+        // returns monthly payment cost
+        void simulatePayments(int numOfMonths, double apr);
+        
     private:
         long vin;
         string model;
         string make;
         int year;
         string color;
-        int mileage;
+        int milage;
         double mpg;
-        double price; 
+        double price;
         string addOns;
-
-    public:
-        Car();
-        Car(long theVin, string theModel, string theMake, int theYear,
-            string theColor, int theMileage, double theMPG, double thePrice,
-            string theAddOns); 
-    
-
-    //getters
-    long getVin();
-    string getModel();
-    int getYear();
-    string getColor();
-    int getMileage();
-    int getMPG();
-    double getPrice();
-    string getAddON(int theAddOn);
-    int getAddOnPrice(int index);
-
-    //setters
-    void setVIN(long theVIN);
-    void setModel(string theModel);
-    void setMake(string theMake);
-    void setYear(int theYear);
-    void setColor(string theColor);
-    void setMileage(int theMileage);
-    void serMPG(double theMPG);
-    void setPrice(double thePrice);
-
-    //methods
-    void selectAddOn(int addOnId);
-    void simulatePayment();
-
+        int numAddOns;
 };
 
 #endif
