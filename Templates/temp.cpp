@@ -1,3 +1,13 @@
+/*
+Summary: Implementation of class Student, including private member variables,
+public constructors, and public methods (getters, setters, and others).
+
+Author name: James Boyce
+CU ID: 830383905
+Due date: 09/12/2025
+Status: Complete; passes autograder
+*/
+
 #include "temp.h"
 #include <iostream>
 #include <iomanip>

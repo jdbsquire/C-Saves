@@ -1,3 +1,13 @@
+/*
+Summary: Header file for class Student, including
+private attributes, constructors, and public methods.
+
+Author: James Boyce
+CU ID: 830383905
+Due date: 09/12/2025
+Status: Complete
+*/
+
 #ifndef NAME_H
 #define NAME_H
 
