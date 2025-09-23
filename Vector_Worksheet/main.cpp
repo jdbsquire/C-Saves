@@ -10,7 +10,7 @@ int main(){
 
     //access elements using []
     cout << "First element: " << vec[0] << endl;
-
+    cout << "James first element" << endl;
     //access with bounds checking
     cout << "Second element (using at())" << vec.at(1) << endl;
 
@@ -27,7 +27,7 @@ int main(){
 
     //modify elements
     vec[2] = 42;
-    vec.at[2] = 42; //safe, secure, guardrails
+    vec.at(2) = 42; //safe, secure, guardrails
     
     //add elements at the end
     vec.push_back(99);
@@ -47,7 +47,7 @@ int main(){
     cout << endl; 
 
     //use sort
-    sort(vec.begin, vec.end());
+    sort(vec.begin(), vec.end());
     cout << "After sorting: ";
     for (int x : vec){
         cout << x << " ";
