@@ -8,10 +8,18 @@ Due date: 09/12/2025
 Status: Complete; passes autograder
 */
 
-#include "temp.h"
 #include <iostream>
-#include <iomanip>
 #include <string>
+#include <cmath>
+#include <random>
+#include <ctime>
+#include <array>
+#include <vector>
+#include <cstddef>
+#include <iomanip>
+#include <exception>
+#include <cstdlib>
+#include <sstream>
 
 using namespace std; //no need to place std::before the variables
 
