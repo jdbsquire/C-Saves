@@ -15,11 +15,12 @@ Status: Complete; passes autograder
 #include <ctime>
 #include <array>
 #include <vector>
+#include <cctype>
 #include <cstddef>
 #include <iomanip>
 #include <exception>
 #include <cstdlib>
-#include <sstream>
+#include <algorithm>
 
 using namespace std; //no need to place std::before the variables
 
