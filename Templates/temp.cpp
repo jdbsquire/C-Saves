@@ -6,21 +6,21 @@ Author name: James Boyce
 CU ID: 830383905
 Due date: 09/12/2025
 Status: Complete; passes autograder
-*/
+*/*/
 
-#include <iostream>
-#include <string>
-#include <cmath>
-#include <random>
-#include <ctime>
-#include <array>
-#include <vector>
-#include <cctype>
-#include <cstddef>
-#include <iomanip>
-#include <exception>
-#include <cstdlib>
 #include <algorithm>
+#include <array>
+#include <cctype>
+#include <cmath>
+#include <cstddef>
+#inlcude <cstdlib>
+#include <ctime>
+#include <exception>
+#include <iomanip>
+#include <iostream>
+#include <random>
+#include <string>
+#include <vector>
 
 using namespace std; //no need to place std::before the variables
 

@@ -11,19 +11,19 @@ Status: Complete
 #ifndef NAME_H
 #define NAME_H
 
-#include <iostream>
-#include <string>
-#include <cmath>
-#include <random>
-#include <ctime>
-#include <array>
-#include <vector>
-#include <cctype>
-#include <cstddef>
-#include <iomanip>
-#include <exception>
-#include <cstdlib>
 #include <algorithm>
+#include <array>
+#include <cctype>
+#include <cmath>
+#include <cstddef>
+#inlcude <cstdlib>
+#include <ctime>
+#include <exception>
+#include <iomanip>
+#include <iostream>
+#include <random>
+#include <string>
+#include <vector>
 
 using namespace std;
 
