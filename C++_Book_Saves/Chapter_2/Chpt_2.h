@@ -24,16 +24,27 @@ class Chpt_2{
     friend istream& operator >> (istream& is, Chpt_2& chapter);
 
     private:
-        int num1{0}
-            num{0};
+        float num1{0},
+            num2{0},
+            result={0};
 
     public:
         //Constructors
         Chpt_2();//default constructor
-        Chpt_2();//parameterized
+        Chpt_2(const int&, const int&);//parameterized
 
         //Getters
+        float getSum();
+        float getProduct();
+        float getDifference();
+        float getQuotient();
+
         //Setters
+        void setSum(const float&, const float&);
+        void setProduct(const float&, const float&);
+        void setDifference(const float&, const float&);
+        void setQuotient(const float&, const float&);
+
         //Methods
 
 
