@@ -16,7 +16,7 @@ Status: Complete
 #include <cctype>
 #include <cmath>
 #include <cstddef>
-#inlcude <cstdlib>
+#include <cstdlib>
 #include <ctime>
 #include <exception>
 #include <iomanip>
