@@ -19,6 +19,7 @@ Status: Complete
 #include <cstdlib>
 #include <ctime>
 #include <exception>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <random>
