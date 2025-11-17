@@ -35,10 +35,11 @@ class temp{
         public:
         //Constructors
 
+  
+        //Getters      
+        
+        
         //Setters
-
-
-        //Getters
 
 
         //Methods
