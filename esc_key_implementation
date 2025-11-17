@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char key;
+    
+    cout << "Program running. Press ESC to exit.\n";
+    
+    while (true) {
+        key = cin.get();
+        
+        if (key == 27) {  // ASCII code for ESC
+            cout << "ESC pressed. Exiting...\n";
+            break;  // or return 0;
+        }
+        
+        // Your program logic here
+        cout << "You pressed: " << key << endl;
+    }
+    
+    return 0;
+}
