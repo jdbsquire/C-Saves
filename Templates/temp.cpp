@@ -6,14 +6,14 @@ Author name: James Boyce
 CU ID: 830383905
 Due date: 09/12/2025
 Status: Complete; passes autograder
-*/*/
+*/
 
 #include <algorithm>
 #include <array>
 #include <cctype>
 #include <cmath>
 #include <cstddef>
-#inlcude <cstdlib>
+#include <cstdlib>
 #include <ctime>
 #include <exception>
 #include <iomanip>
