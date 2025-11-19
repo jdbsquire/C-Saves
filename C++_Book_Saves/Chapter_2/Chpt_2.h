@@ -26,12 +26,16 @@ class Chpt_2{
     private:
         float num1{0},
             num2{0},
-            result={0};
+            result{0},
+            newSum{0},
+            newProduct{0},
+            newDifference{0},
+            newQuotient{0};
 
     public:
         //Constructors
         Chpt_2();//default constructor
-        Chpt_2(const int&, const int&);//parameterized
+        Chpt_2(const float&, const float&);//parameterized
 
         //Getters
         float getSum();
@@ -46,8 +50,7 @@ class Chpt_2{
         void setQuotient(const float&, const float&);
 
         //Methods
-
-
+        void captureValues(const float&, const float&);
 };
 
 #endif

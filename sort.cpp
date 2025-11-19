@@ -31,7 +31,9 @@ int main(){
     }
 
     //create vector to receive the file
-    //vector<SortedFile> people; 
+    //need an associated class type in which to place the 
+    //<objects>
+    vector<SortedFile> people; 
 
     //close the file always
     infile.close();

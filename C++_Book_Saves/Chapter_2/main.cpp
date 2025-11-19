@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <exception>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <random>
@@ -21,10 +22,25 @@ int main(){
     //create instance of class
     Chpt_2 baseMath;
 
-    int num1{0},
-        num2{0};
+    string num1{""},
+        num2{""};
 
     cout << "Hello\n";
+
+    cout << "Enter the first number: ";
+    getline(cin, num1);
+
+    cout << "Enter the second number: ";
+    getline(cin, num2);
+
+    cout << "\n";
+    //convert the strings to floats
+    //send to captureValues method
+    baseMath.captureValues(stof(num1), stof(num2));
+
+    //populate the constructor
+    //baseMath(num1, num2);
+
     //get all four vals from getters
     cout << "cout block start\n";
     cout << "SUM: " << baseMath.getSum() << "\n" <<
