@@ -38,10 +38,10 @@ class Chpt_2{
         Chpt_2(const float&, const float&);//parameterized
 
         //Getters
-        float getSum();
-        float getProduct();
-        float getDifference();
-        float getQuotient();
+        float getSum() const;
+        float getProduct()const;
+        float getDifference()const;
+        float getQuotient()const;
 
         //Setters
         void setSum(const float&, const float&);

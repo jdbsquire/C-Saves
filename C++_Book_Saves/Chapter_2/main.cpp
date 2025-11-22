@@ -18,7 +18,8 @@
 using namespace std;
 
 int main(){
-
+  
+    cout << "2.16 block start\n";
     //create instance of class
     Chpt_2 baseMath;
 
@@ -42,12 +43,12 @@ int main(){
     //baseMath(num1, num2);
 
     //get all four vals from getters
-    cout << "cout block start\n";
+  
     cout << "SUM: " << baseMath.getSum() << "\n" <<
          "MULTIPLY: " << baseMath.getProduct() << "\n" <<
          "SUBTRACT: " << baseMath.getDifference() << "\n" <<
          "DIVIDE: " << baseMath.getQuotient() << "\n";
-    cout << "cout block end\n";
+    cout << "2.16 block end\n\n";
 
     return 0;
 }

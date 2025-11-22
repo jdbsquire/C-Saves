@@ -13,19 +13,19 @@ Chpt_2::Chpt_2(const float& Inum1, const float& Inum2){
     //Inum2=0;
 }
 
-float Chpt_2::getSum(){
+float Chpt_2::getSum()const{
     return newSum;
 }
 
-float Chpt_2::getProduct(){
+float Chpt_2::getProduct()const{
     return newProduct;
 }
 
-float Chpt_2::getDifference(){
+float Chpt_2::getDifference()const{
     return newDifference;
 }
 
-float Chpt_2::getQuotient(){
+float Chpt_2::getQuotient()const{
     return newQuotient;
 }
 
