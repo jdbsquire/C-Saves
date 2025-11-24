@@ -21,9 +21,21 @@ class Menu{
 
         friend ostream& operator << (ostream&, Menu&);
 
-        public:
+        private:
+                string type;
 
-        //ostream& operator << (ostream);
+        public:
+                Menu();
+                Menu(const int&);
+        //constructors
+
+        //getters
+        string getMenuType();
+
+        //setters
+        void setMenuType(const int&);
+
+        //methods
 
 };
 

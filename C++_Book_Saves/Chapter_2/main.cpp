@@ -1,4 +1,5 @@
 #include "Chpt_2.h"
+#include "Menu.h"
 
 #include <algorithm>
 #include <array>
@@ -18,8 +19,27 @@
 using namespace std;
 
 int main(){
-  
-    cout << "2.16 block start\n";
+     
+     //Create Menu object
+     Menu menu;
+
+     //Display menu object
+     cout << menu << "\n";
+
+     // obtain the user's choice
+     cout << "Which feature would you like to use? ";
+     //argument to send to setMenuType
+     string menuCode = "";
+     // put the choice into the stream
+     // getline only works with strings!!!!
+     getline(cin, menuCode);
+
+     //set menu type
+     menu.setMenuType(stoi(menuCode));
+     //display menutype
+     cout << menu.getMenuType() << "\n";
+
+    cout << "\n2.16 block start\n";
     //create instance of class
     Chpt_2 baseMath;
 
