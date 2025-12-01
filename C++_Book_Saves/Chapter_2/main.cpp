@@ -23,74 +23,38 @@ int main(){
      //Create Menu object
      Menu menu;
 
-     //Display menu object
-     cout << menu << "\n";
+     //variables for use in the loop
+     string sentinel = "",
+            response = "";  
 
-     // obtain the user's choice
-     cout << "Which feature would you like to use? ";
-     //argument to send to setMenuType
-     string menuCode = "";
-     // put the choice into the stream
-     // getline only works with strings!!!!
-     getline(cin, menuCode);
+     // while loop to encapsulate the program
+     while(sentinel != "drx"){
 
-     //set menu type
-     menu.setMenuType(stoi(menuCode));
-     //display menutype
-     cout << menu.getMenuType() << "\n";
+          //Display menu object
+          // Go to the Menu class for the display of the menu
+          cout << menu << "\n";
 
-    cout << "\n2.16 block start\n";
-    //create instance of class
-    Chpt_2 baseMath;
+          // obtain the user's choice
+          cout << "Which feature would you like to use? ";
+          //argument to send to setMenuType
+          int menuCode{0};
+          // put the choice into the stream
+          // getline only works with strings!!!!
+          cin >> menuCode;
 
-    string num1{""},
-           num2{""},
-           num3{""},
-           num4{""};
+          //set menu type and run the code in that block
+          menu.setMenuType(menuCode);
 
-    cout << "Hello\n";
-
-    cout << "Enter the first number: ";
-    getline(cin, num1);
-
-    cout << "Enter the second number: ";
-    getline(cin, num2);
-
-    cout << "\n";
-    //convert the strings to floats
-    //send to captureValues method
-    baseMath.captureValues(stof(num1), stof(num2));
-
-    //populate the constructor
-    //baseMath(num1, num2);
-
-    //get all four vals from getters
-  
-    cout << "SUM: " << baseMath.getSum() << "\n" <<
-         "MULTIPLY: " << baseMath.getProduct() << "\n" <<
-         "SUBTRACT: " << baseMath.getDifference() << "\n" <<
-         "DIVIDE: " << baseMath.getQuotient() << "\n";
-    cout << "2.16 block end\n\n";
-
-    cout << "2.17 block begin\n"
-         << "Printing four numbers with the \n"
-         << "stream insertion operator <<.\n"
-         << "Sending the information to the output stream.\n\n"
-         
-         << "Enter the first number: ";
-         getline(cin, num1);
-
-         cout << "Enter the second number: ";
-         getline(cin, num2);
-
-         cout << "Enter the third number: ";
-         getline(cin, num3);
-
-         cout << "Enter the fourth number: ";
-         getline(cin, num4);
-
-    
-
+     // need some logic in here
+     cout << "Would you like to run this feature again\n"
+          << "y or n?\n";
+     cin >> response;
+     transform(response.begin(), response.end(),
+               response.begin(),::toupper);
+          //Does the user want to continue?
+          if(response == "N")
+               sentinel = "drx";
+     }
 
     return 0;
 }

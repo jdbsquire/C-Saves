@@ -1,4 +1,7 @@
 #include "Menu.h"
+#include "Chpt_2.h"
+
+Chpt_2 feature;
 
 using namespace std;
 
@@ -20,24 +23,24 @@ using namespace std;
             << right << setw(41) << "Chapter 2 Programs and Classes\n"
             << right << setw(39) << "Enter code to use feature.\n"
             << right << setw(46) << "Esc to return to this screen at any time\n"
-            << string(48, '*') << "\n"
-            << left << setw(24) << "Arithmetic - 1  " 
-            << right << setw(17) << "| Multiple Of - 2\n"
-            << left << setw(24) << "Stream Insertion - 3  " 
-            << right << setw(20) << "| Checker Board - 4\n"
-            << left << setw(22) << "Compare Integers - 5" 
-            << right << setw(20) << "| Char to Int - 6\n"
-            << left << setw(24) << "Small to Largest - 7" 
-            << right << setw(20) << "| Parse the Integer - 8\n"
-            << left << setw(24) << "Circle - 9" 
-            << right << setw(20) << "| Squares and Cubes - 10\n"
-            << left << setw(15) << "Shapes - 11" 
-            << right << setw(20)<< "| BMI - 12\n"
-            << left << setw(15) << "Largest to Smallest - 13" 
-            << right << setw(15) << "| Carpool - 14\n"
-            << left << setw(21) << "Odd or Even - 15"
+            << string(50, '*') << "\n"
+            << left << setw(26) << "Arithmetic - 1" 
+            << right << setw(17) << "| Multiple Of - 9\n"
+            << left << setw(26) << "Stream Insertion - 2" 
+            << right << setw(20) << "| Checker Board - 10\n"
+            << left << setw(25) << "Compare Integers - 3" 
+            << right << setw(20) << "| Char to Int - 11\n"
+            << left << setw(24) << "Arth, Small to Largest - 4" 
+            << right << setw(20) << "| Parse the Integer - 12\n"
+            << left << setw(26) << "Circle - 5" 
+            << right << setw(20) << "| Squares and Cubes - 13\n"
+            << left << setw(17) << "Shapes - 6" 
+            << right << setw(20)<< "| BMI - 14\n"
+            << left << setw(26) << "Largest to Smallest - 7" 
+            << right << setw(15) << "| Carpool - 15\n"
+            << left << setw(23) << "Odd or Even - 8"
             << right << setw(5) <<"|\n"
-            << string(48, '*') << "\n"<< endl;
+            << string(50, '*') << "\n"<< endl;
 
         return os;
 
@@ -54,51 +57,142 @@ using namespace std;
             // switch case returns nothing but the program uses the information
             //switch only takes integers
             // "type" is the variable name receiving the value
+            // feature is defined inside of Chpt_2.cpp file
             switch(menuType){
                 case 1:
                     type = "Arithmetic";
+                    feature.setType(type);
+                    cout << "Arithmetic" << "\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";
                     break;
                 case 2:
                     type = "Stream Insertion";
+                    feature.setType(type);
+                    cout << "Stream Insertion\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";
                     break;
                 case 3:
                     type = "Compare Integers";
+                    feature.setType(type);
+                    cout << "Compare Integers\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";                    
                     break;
                 case 4:
-                    type = "Small to Largest";
+                    type = "Arth, Small to Largest";
+                    feature.setType(type);
+                    cout << "Arth, Small to Largestn\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";                    
                     break; 
                 case 5:
                     type = "Circle";
+                    feature.setType(type);
+                    cout << "Circle\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";                    
                     break;
                 case 6:
                     type = "Shapes";
+                    feature.setType(type);
+                    cout << "Shapes\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";                    
                     break;
                 case 7:
                     type = "Largest to Smallest";
+                    feature.setType(type);
+                    cout << "Largest to Smalest\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";                    
                     break;
                 case 8:
                     type = "Odd or Even";
+                    feature.setType(type);
+                    cout << "Odd or Even\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";                    
                     break;
                 case 9:
                     type = "Multiple Of";
+                    feature.setType(type);
+                    cout << "Multiple Of\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";
                     break;
                 case 10:
                     type = "Checker Board";
+                    feature.setType(type);
+                    cout << "Checker Board\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";
                     break;
                 case 11:
                     type = "Char to Int";
+                    feature.setType(type);
+                    cout << "Char to Int\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";
                     break;
                 case 12:
                     type = "Parse the Integer";
+                    feature.setType(type);
+                    cout << "Parse the Integer\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";
                     break;
                 case 13:
                     type = "Squares and Cubes";
+                    feature.setType(type);
+                    cout << "Squares and Circles\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";
                     break;
                 case 14:
                     type = "BMI";
+                    feature.setType(type);
+                    cout << "BMI\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";
                     break;
                 case 15:
                     type = "Carpool";
+                    feature.setType(type);
+                    cout << "Carpool\n\n";
+                    cin >> feature;
+                    cout << "\n"
+                         << feature
+                         << "\n";
                     break;
             }
     }
