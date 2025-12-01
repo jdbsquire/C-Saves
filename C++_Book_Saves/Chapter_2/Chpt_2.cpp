@@ -36,6 +36,30 @@ string Chpt_2::getType()const{
     return newType;
 }
 
+float Chpt_2::getThreeSum()const{
+    return threeSum;
+}
+
+float Chpt_2::getThreeProd()const{
+    return threeProd;
+}
+
+float Chpt_2::getThreeAvg()const{
+    return threeAvg;
+}
+
+float Chpt_2::getSmallest()const{
+    return smallest;
+}
+
+float Chpt_2::getLargest()const{
+    return largest;
+}
+
+string Chpt_2::getThreeIntegers()const{
+    return threeIntegers;
+}
+
 //setters
 void Chpt_2::setSum(const float& val1, const float& val2){
     newSum = val1 + val2;
@@ -55,6 +79,36 @@ void Chpt_2::setQuotient(const float& val1, const float& val2){
 
 void Chpt_2::setType(string& newFeature){
     newType = newFeature;
+}
+
+void Chpt_2::setParseString(string& newString){
+    //using isstringstream to parse the inoming string
+    threeIntegers = newString;
+    //will perform the parsing
+    istringstream threeInts(newString);
+    string stringNum1 = "",
+           stringNum2 = "",
+           stringNum3 = "";
+    //read the result and convert into the three floats
+    threeInts >> stringNum1 >> stringNum2 >>stringNum3;
+    num1 = stof(stringNum1);
+    num2 = stof(stringNum2);
+    num3 = stof(stringNum3);
+
+    //Process block
+    threeSum = num1 + num2 + num3;
+    threeAvg = threeSum/3;
+    threeProd = num1 * num2 * num3;
+
+    //SORTING AND FINDING DESIRED VALUES FROM A VECTOR
+    //using minmax
+    vector<float> myVector = {num1, num2, num3};
+    auto minmax = minmax_element(myVector.begin(), myVector.end());
+    //find smallest
+    smallest = *minmax.first;
+    //find largest
+    largest = *minmax.second;
+
 }
 
 //Methods 
@@ -82,6 +136,18 @@ void Chpt_2::concatenate(const int& Inum1, const int& Inum2, const int& Inum3, c
     cout << " Statement 3: " << Inum3 ;
     cout << " Statement 4: " << Inum4 << "\n";
 }
+
+ void Chpt_2::compare(const int& Inum1, const int& Inum2){
+    //test for equality first
+    if(Inum1 == Inum2){
+        cout << Inum1 << " and " << Inum2 << " are equal integers.\n";
+    } else if (Inum1 > Inum2){
+        //cout the larger number
+        cout << Inum1 << " is greater than " << Inum2 << "\n";        
+    } else {
+        cout << Inum2 << " is greater than " << Inum1 << "\n";
+    }
+ }
 
 //I'm defining a script for this operator
 istream& operator >> (istream& is, Chpt_2& chpt2){
@@ -129,17 +195,29 @@ istream& operator >> (istream& is, Chpt_2& chpt2){
     }else if (chpt2.newType == "Compare Integers"){
         cout << "                       2.18\n"
              << "This feature compares two integers.\n"
-             << "It will print the larger number followed by the string is larger\n"
+             << "It will print the larger number followed by this integer is larger\n"
              << "If the numbers are equal it will print equal.\n"
              << "               Compare Integers\n"
              << "Enter the first number: ";
              cin >> chpt2.num1;
              cout << "Enter the second number: ";
              cin >> chpt2.num2;
-        cout << "\n";
-        
+
     }else if (chpt2.newType == "Arth, Small to Largest"){
-        
+        cout << "                       2.19\n"
+             << "This feature obtains three integers from the user.\n"
+             << "Then it prints the sum, average, product, smallest and largest\n"
+             << "of the three numbers.\n";
+             //clear the leftover newline character
+             // to prevent exposure in the getline()
+             cin.ignore();
+             string threeInts = "";
+             //will use getline(cin, var); in this feature
+             cout << "Input three different integers: ";
+             getline(cin, threeInts);
+             //cout << "Entered: " << threeInts << "\n";
+             chpt2.setParseString(threeInts);
+            
     }else if (chpt2.newType == "Circle"){
         
     }else if (chpt2.newType == "Shapes"){
@@ -182,9 +260,17 @@ ostream& operator << (ostream& os, Chpt_2& display){
               display.num3, display.num4);
         cout << "\n";
     } else if(display.newType == "Compare Integers"){
-        
-
+        //call the compare method and cout
+        display.compare(display.num1, display.num2);
+        //cout << "\n";
     } else if(display.newType == "Arth, Small to Largest"){
+        cout << "Three different integers: "
+             << display.getThreeIntegers() << "\n"
+             << "Sum is " << display.getThreeSum() << "\n"
+             << "Average is " << display.getThreeAvg() << "\n"
+             << "Product is " << display.getThreeProd() << "\n"
+             << "Smallest is " << display.getSmallest() << "\n"
+             << "Largest is " << display.getLargest() << "\n";
 
     } else if(display.newType == "Circle"){
 

@@ -32,8 +32,14 @@ class Chpt_2{
             newSum{0},
             newProduct{0},
             newDifference{0},
-            newQuotient{0};
-        string newType = "";
+            newQuotient{0},
+            threeSum{0},
+            threeAvg{0},
+            threeProd{0},
+            smallest{0},
+            largest{0};
+        string newType = "",
+               threeIntegers = "";
 
     public:
         //Constructors
@@ -46,6 +52,12 @@ class Chpt_2{
         float getDifference()const;
         float getQuotient()const;
         string getType()const;
+        float getThreeSum()const;
+        float getThreeAvg()const;
+        float getThreeProd()const;
+        float getSmallest()const;
+        float getLargest()const;
+        string getThreeIntegers()const;
 
         //Setters
         void setSum(const float&, const float&);
@@ -53,10 +65,12 @@ class Chpt_2{
         void setDifference(const float&, const float&);
         void setQuotient(const float&, const float&);
         void setType(string&);
+        void setParseString(string&);
 
         //Methods
         void captureValues(const float&, const float&);
         void concatenate(const int&, const int&, const int&, const int&);
+        void compare(const int&, const int&);
 };
 
 #endif
