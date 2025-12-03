@@ -19,6 +19,11 @@
 using namespace std;
 
 int main(){
+
+     //TESTING THE SCOPE OF Chpt_2
+     //Chpt_2 test;
+     //test.setSum(5, 9);
+     //cout << test.getSum() << "\n";
      
      //Create Menu object
      Menu menu;
@@ -26,6 +31,7 @@ int main(){
      //variables for use in the loop
      string sentinel = "",
             response = "";  
+     int menuCode{0};
 
      // while loop to encapsulate the program
      while(sentinel != "drx"){
@@ -36,24 +42,47 @@ int main(){
 
           // obtain the user's choice
           cout << "Which feature would you like to use? ";
-          //argument to send to setMenuType
-          int menuCode{0};
-          // put the choice into the stream
-          // getline only works with strings!!!!
-          cin >> menuCode;
+          cin >> response;
+          if(response == "Q" || response == "q"){
+               sentinel = "drx";
+          } else {
+               //argument to send to setMenuType
+
+               // put the choice into the stream
+               // getline only works with strings!!!!
+               menuCode = stoi(response);               
 
           //set menu type and run the code in that block
           menu.setMenuType(menuCode);
 
      // need some logic in here
-     cout << "Would you like to run this feature again\n"
+     cout << "Would you like to run this feature again OUTSIDE REPEAT\n"
           << "y or n?\n";
      cin >> response;
      transform(response.begin(), response.end(),
                response.begin(),::toupper);
           //Does the user want to continue?
-          if(response == "N")
+          if(response == "Q"){
                sentinel = "drx";
+          } else if (response == "N"){
+               /* code */
+               cout << "BACK TO HOME SCREEN\n";
+          } else if (response == "Y"){
+               while (response == "Y"){
+                    menu.setMenuType(menuCode);
+                    //sentinel oportunity
+                    cout << "Would you like to run this feature again INSIDE REPEAT\n"
+                         << "y or n?\n";
+                    cin >> response;
+                    transform(response.begin(), response.end(),
+                              response.begin(),::toupper);
+               }
+               if(response == "Q")
+                    sentinel = "drx";
+               /* code */
+               //menu.setMenuType(menuCode);
+          }          
+     }
      }
 
     return 0;

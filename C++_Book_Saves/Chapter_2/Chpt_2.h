@@ -38,6 +38,9 @@ class Chpt_2{
             threeProd{0},
             smallest{0},
             largest{0};
+        int diameter{0},
+            circumference{0},
+            area{0};
         string newType = "",
                threeIntegers = "";
 
@@ -58,6 +61,9 @@ class Chpt_2{
         float getSmallest()const;
         float getLargest()const;
         string getThreeIntegers()const;
+        int getDiameter()const;
+        int getCircumference()const;
+        int getArea()const;
 
         //Setters
         void setSum(const float&, const float&);
@@ -66,11 +72,13 @@ class Chpt_2{
         void setQuotient(const float&, const float&);
         void setType(string&);
         void setParseString(string&);
+        void setRadius(int&);
 
         //Methods
         void captureValues(const float&, const float&);
         void concatenate(const int&, const int&, const int&, const int&);
         void compare(const int&, const int&);
+        void shapes();
 };
 
 #endif

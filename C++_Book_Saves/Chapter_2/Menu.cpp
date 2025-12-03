@@ -1,6 +1,8 @@
 #include "Menu.h"
 #include "Chpt_2.h"
 
+//I brought in this object into Menu to have 
+//access to the attributes and methods
 Chpt_2 feature;
 
 using namespace std;
@@ -23,6 +25,7 @@ using namespace std;
             << right << setw(41) << "Chapter 2 Programs and Classes\n"
             << right << setw(39) << "Enter code to use feature.\n"
             << right << setw(46) << "Esc to return to this screen at any time\n"
+            << right << setw(37) << "q to quit the program\n"
             << string(50, '*') << "\n"
             << left << setw(26) << "Arithmetic - 1" 
             << right << setw(17) << "| Multiple Of - 9\n"

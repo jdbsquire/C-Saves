@@ -59,6 +59,18 @@ float Chpt_2::getLargest()const{
 string Chpt_2::getThreeIntegers()const{
     return threeIntegers;
 }
+//    2.20 ****************************
+int Chpt_2::getDiameter()const{
+    return diameter;
+}
+
+int Chpt_2::getCircumference()const{
+    return circumference;
+}
+
+int Chpt_2::getArea()const{
+    return area;
+}
 
 //setters
 void Chpt_2::setSum(const float& val1, const float& val2){
@@ -108,7 +120,13 @@ void Chpt_2::setParseString(string& newString){
     smallest = *minmax.first;
     //find largest
     largest = *minmax.second;
+}
 
+//      2.20 *************************
+void Chpt_2::setRadius(int& r){
+    diameter = 2*r;
+    circumference = 2*3.14159*r;
+    area = r*r*3.14159;
 }
 
 //Methods 
@@ -147,6 +165,35 @@ void Chpt_2::concatenate(const int& Inum1, const int& Inum2, const int& Inum3, c
     } else {
         cout << Inum2 << " is greater than " << Inum1 << "\n";
     }
+ }
+
+ void Chpt_2::shapes(){
+  //will use string multiplier for this method
+  //line 1 box
+  cout << string(15,'*') << string(11, ' ') 
+        // CIRCLE
+       << string(6, '*') << string(11, ' ') 
+        // Arrow
+       << string(1, '*') << string(13, ' ') 
+        // Diamond
+       << string(1, '*') << "\n"
+       //line 2
+       //Box
+       << string(1, '*') << string(13, ' ') << string(1, '*') << string(10, ' ')
+       //Circle
+       << string(1, '*') << string (6, ' ') << string(1, '*') << string(9, ' ')
+       //Arrow
+       << string(3, '*') << string(11, ' ') 
+       //Diamond
+       << string (1, '*') << string(1, ' ') << string(1, '*') << "\n"
+       //line3
+       //Box
+       << string(1, '*') << string(13, ' ') << string(1, '*') << string(10, ' ')
+       //Circle
+       << string(1, '*') << string(6, ' ') << string(1, '*') << string(8, ' ')
+       //Arrow
+       << string(5, '*') << string(9, ' ') 
+       << string(1, '*') << string(3, ' ') << string(1, '*') << "\n";
  }
 
 //I'm defining a script for this operator
@@ -219,8 +266,19 @@ istream& operator >> (istream& is, Chpt_2& chpt2){
              chpt2.setParseString(threeInts);
             
     }else if (chpt2.newType == "Circle"){
+        cout << "                       2.20\n"
+             << "This feature will take the radius of a circle in feet\n"
+             << "then print the circle's diameter, circumference and area.\n"
+             << "Results are in integers, which truncates floating-point values.\n"
+             << "Enter the radius of the circle: ";
+             int area{0};
+             cin >> area;
+             chpt2.setRadius(area);
         
     }else if (chpt2.newType == "Shapes"){
+        cout << "                       2.21\n"
+             << "This feature will generate four shapes on the screen.\n"
+             << "All of the logic is done under the hood with for loops.\n";
         
     }else if (chpt2.newType == "Largest to Smallest"){
         //inside of istream
@@ -273,8 +331,15 @@ ostream& operator << (ostream& os, Chpt_2& display){
              << "Largest is " << display.getLargest() << "\n";
 
     } else if(display.newType == "Circle"){
+        cout << "Measurements of this Circle: \n"
+             << "Diameter is: " << display.getDiameter() << " ft.\n"
+             << "Circumference is: " << display.getCircumference() << " ft.\n"
+             << "Area is: " << display.getArea() << " ftsq.\n";
 
     } else if(display.newType == "Shapes"){
+        cout << "Box, Circle, Arrow and Diamond.\n";
+        // no cout statement just call the method
+        display.shapes();
 
     } else if(display.newType == "Largest to Smallest"){
         //inside of ostream
