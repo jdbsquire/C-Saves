@@ -188,12 +188,67 @@ void Chpt_2::concatenate(const int& Inum1, const int& Inum2, const int& Inum3, c
        << string (1, '*') << string(1, ' ') << string(1, '*') << "\n"
        //line3
        //Box
-       << string(1, '*') << string(13, ' ') << string(1, '*') << string(10, ' ')
+       << string(1, '*') << string(13, ' ') << string(1, '*') << string(9, ' ')
        //Circle
-       << string(1, '*') << string(6, ' ') << string(1, '*') << string(8, ' ')
+       << string(1, '*') << string(8, ' ') << string(1, '*') << string(7, ' ')
        //Arrow
        << string(5, '*') << string(9, ' ') 
-       << string(1, '*') << string(3, ' ') << string(1, '*') << "\n";
+       //Diamond
+       << string(1, '*') << string(3, ' ') << string(1, '*') << "\n"
+       //line 4
+       //Box
+       << string(1, '*') << string(13, ' ') << string(1, '*') << string(9, ' ')
+       //Circle
+       << string(1, '*') << string (8, ' ') << string(1, '*') << string(9, ' ')
+       //Arrow
+       << string(1, '*') << string(10, ' ')
+       //Diamond
+       << string(1, '*') << string(5, ' ') << string(1, '*') << "\n"
+       //Line 5
+       //Box
+       << string(1, '*') << string(13, ' ') << string(1, '*') << string(9, ' ')
+       //Circle
+       << string(1, '*') << string (8, ' ') << string(1, '*') << string(9, ' ')
+       //Arrow
+       << string(1, '*') << string(9, ' ')
+       //Diamond
+       << string(1, '*') << string(7, ' ') << string(1, '*') << "\n"
+       //Line 6
+       //Box
+       << string(1, '*') << string(13, ' ') << string(1, '*') << string(9, ' ')
+       //Circle
+       << string(1, '*') << string(8, ' ') << string(1, '*') << string(9, ' ')
+       //Arrow
+       << string(1, '*') << string(10, ' ')
+       //Diamond
+       << string(1, '*') << string(5, ' ') << string(1, '*') << "\n"
+       //Line 7
+       //Box
+       << string(1, '*') << string(13, ' ') << string(1, '*') << string(9, ' ')
+       //Circle
+       << string(1, '*') << string(8, ' ') << string(1, '*') << string(9, ' ')
+       //Arrow
+       << string(1, '*') << string(11, ' ')
+       //Diamond
+       << string(1, '*') << string(3, ' ') << string(1, '*') << "\n"
+       //Line 8
+       //Box
+       << string(1, '*') << string(13, ' ') << string(1, '*') << string(10, ' ')
+       //Circle
+       << string(1, '*') << string(6, ' ') << string(1, '*') << string(10, ' ')
+       //Arrow
+       << string(1, '*') << string(12, ' ')
+       //Diamond
+       << string(1, '*') << string(1, ' ') << string(1, '*') << "\n"
+       //Line 9
+       //Box
+       << string(15,'*') << string(11, ' ') 
+       // CIRCLE
+       << string(6, '*') << string(11, ' ') 
+       // Arrow
+       << string(1, '*') << string(13, ' ') 
+       // Diamond
+       << string(1, '*') << "\n";
  }
 
 //I'm defining a script for this operator
@@ -278,7 +333,8 @@ istream& operator >> (istream& is, Chpt_2& chpt2){
     }else if (chpt2.newType == "Shapes"){
         cout << "                       2.21\n"
              << "This feature will generate four shapes on the screen.\n"
-             << "All of the logic is done under the hood with for loops.\n";
+             << "All of the logic is done under the hood, without loops."
+             << "Next time the block will be in its own classs with loops.\n";
         
     }else if (chpt2.newType == "Largest to Smallest"){
         //inside of istream
@@ -337,7 +393,7 @@ ostream& operator << (ostream& os, Chpt_2& display){
              << "Area is: " << display.getArea() << " ftsq.\n";
 
     } else if(display.newType == "Shapes"){
-        cout << "Box, Circle, Arrow and Diamond.\n";
+        cout << "      Box                 Circle         Arrow        Diamond\n";
         // no cout statement just call the method
         display.shapes();
 

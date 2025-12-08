@@ -56,7 +56,7 @@ int main(){
           menu.setMenuType(menuCode);
 
      // need some logic in here
-     cout << "Would you like to run this feature again OUTSIDE REPEAT\n"
+     cout << "Would you like to run this feature again\n"
           << "y or n?\n";
      cin >> response;
      transform(response.begin(), response.end(),
@@ -71,7 +71,7 @@ int main(){
                while (response == "Y"){
                     menu.setMenuType(menuCode);
                     //sentinel oportunity
-                    cout << "Would you like to run this feature again INSIDE REPEAT\n"
+                    cout << "Would you like to run this feature again\n"
                          << "y or n?\n";
                     cin >> response;
                     transform(response.begin(), response.end(),
