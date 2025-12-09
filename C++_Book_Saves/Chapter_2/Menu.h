@@ -30,7 +30,7 @@ class Menu{
         //constructors
 
         //getters
-        string getMenuType();
+        string getMenuType()const;
 
         //setters
         void setMenuType(const int&);

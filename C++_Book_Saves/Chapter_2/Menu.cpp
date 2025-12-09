@@ -50,7 +50,7 @@ using namespace std;
     }
 
     // getters
-    string Menu::getMenuType(){
+    string Menu::getMenuType()const{
         return type;
     }
 

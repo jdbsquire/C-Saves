@@ -84,6 +84,29 @@ string Chpt_2::getMultiple()const{
     return multipleResult;
 }
 
+int Chpt_2::getChar()const{
+    return intNum1;
+}
+
+string Chpt_2::getParseString()const{
+    return strNum1;
+}
+
+int Chpt_2::getSquare()const{
+    return square;
+}
+
+int Chpt_2::getCube()const{
+    return cube;
+}
+
+float Chpt_2::getBMI()const{
+    return num1;
+}
+/************************************************************************************
+ * **********************************************************************************
+ * **********************************************************************************
+ */
 //setters
 void Chpt_2::setSum(const float& val1, const float& val2){
     newSum = val1 + val2;
@@ -195,6 +218,35 @@ void Chpt_2::setMultiple(string& n1){
     }
 }
 
+void Chpt_2::setChar(char& ch){
+    intNum1 = static_cast<int>(ch);
+}
+
+void Chpt_2::setFiveDigitString(string& five){
+    //for loop to parse the integer into a vector
+    vector<char> myVectorString;
+    for (int i{0}; i < 5; i++){
+        myVectorString.push_back(five[i]);
+        myVectorString.push_back(' ');
+        //strNum1 = five[i] + " ";
+    }
+    
+    string newStrNum1(myVectorString.begin(), myVectorString.end());//five[0];// + ' ' + five[1] + ' ';
+    strNum1 = newStrNum1;
+}
+
+void Chpt_2::setPower(int& p){
+    square = pow(p, 2);
+    cube = pow(p, 3);
+}
+
+void Chpt_2::setBMI(float& w, float& h){
+    num1 = (w * 703) / (h*h);
+}
+/***************************************************************************************
+ * ************************************************************************************
+ * *************************************************************************************
+ */
 //Methods 
 //One method in main to gather all the values
 //computations performed inside the class
@@ -458,13 +510,48 @@ istream& operator >> (istream& is, Chpt_2& chpt2){
              << "Simple for loops are generating the image.\n";
         
     }else if (chpt2.newType == "Char to Int"){
+        cout << "                       2.27\n"
+             << "This feature will print the integer equivalent of one \n"
+             << "character from the keyboard.\n"
+             << "Enter a character from the keyboard: ";
+             cin.ignore();
+             //will need some validation logic here to ensure that one character
+             //is selected
+             getline(cin, chpt2.oneInteger);
+             //necessary conversion from the string type
+             chpt2.newChar = chpt2.oneInteger[0];
+             chpt2.setChar(chpt2.newChar);
         
     }else if (chpt2.newType == "Parse the Integer"){
+        cout << "                       2.28\n"
+             << "This feature will take a five-digit integer and parse each\n"
+             << "number of the integer into a display.\n"
+             << "Enter a five-digit integer from the keyboard: ";
+             cin.ignore();
+             //will need to validate a five-digit integer
+             getline(cin, chpt2.fiveIntegers);
+             chpt2.setFiveDigitString(chpt2.fiveIntegers);
         
     }else if (chpt2.newType == "Squares and Cubes"){
+        cout << "                       2.29\n"
+             << "This feature will print the squares and cubes of ten consecutive\n"
+             << "integers in a table.\n"
+             << "All functionality is done under the hood.\n";
         
     }else if (chpt2.newType == "BMI"){
-        
+        //chpt2.num1 = 0.0;
+        cout << "                       2.30\n"
+             << "This feature will calculate BMI for a weight and height.\n"
+             << "Enter your weight in lbs: ";
+             cin.ignore();
+             getline(cin, chpt2.strNum1);
+        cout << "Enter your height in inches: ";
+             //cin.ignore();
+             getline(cin, chpt2.strNum2);
+             chpt2.num2 = stof(chpt2.strNum1);
+             chpt2.num3 = stof(chpt2.strNum2);
+        chpt2.setBMI(chpt2.num2, chpt2.num3);
+        //cout << chpt2.num2 << " " << chpt2.num3 << "\n";
     }else if (chpt2.newType == "Carpool"){
         
     }
@@ -526,12 +613,39 @@ ostream& operator << (ostream& os, Chpt_2& display){
         display.checkerboard();
 
     } else if(display.newType == "Char to Int"){
+        cout << "The integer equivalent ASCII code for " << display.oneInteger
+             << " is " << display.getChar() << "\n";
 
     } else if(display.newType == "Parse the Integer"){
+        cout << display.fiveIntegers << " parsed is \n" 
+             << display.getParseString() << "\n";
 
     } else if(display.newType == "Squares and Cubes"){
+        cout << "Integer     Square      Cube\n";
+             for(int i{0}; i < 11; i++){
+                display.setPower(i);
+                if(i >= 0 && i < 4){
+                    cout << i << string(13, ' ') << display.getSquare() 
+                        << string(11, ' ') << display.getCube() << "\n";
+                } else if(i >= 4 && i <= 9){
+                    cout << i << string(13, ' ') << display.getSquare() 
+                        << string(10, ' ') << display.getCube() << "\n";                    
+                } else if (i = 10){
+                    cout << i << string(12, ' ') << display.getSquare() 
+                        << string(9, ' ') << display.getCube() << "\n";
+                }
+             }
 
     } else if(display.newType == "BMI"){
+        cout << "Department of Health and Human Services\n"
+             << "National Institutes of Health\n"
+             << "         Body Mass Index Calculator\n"
+             << "BMI VALUES\n"
+             << "Underweight: less than 18.5\n"
+             << "Normal:      between 18.5 and 24.9\n"
+             << "Overwieght: between 25 and 29.9\n"
+             << "Obese:       30 or greater\n\n"
+             << "Your BMI is: " << display.getBMI() << "\n";
 
     } else if(display.newType == "Carpool"){
 

@@ -42,7 +42,10 @@ class Chpt_2{
         int intNum1{0},
             diameter{0},
             circumference{0},
-            area{0};
+            area{0},
+            square{0},
+            cube{0};
+        char newChar = 'a';
         string strNum1 = "",
                strNum2 = "",
                newType = "",
@@ -75,6 +78,11 @@ class Chpt_2{
         string getFiveIntegers()const;
         string getOddEven()const;
         string getMultiple()const;
+        int getChar()const;
+        string getParseString()const;
+        int getSquare()const;
+        int getCube()const;
+        float getBMI()const;
 
         //Setters
         void setSum(const float&, const float&);
@@ -87,6 +95,11 @@ class Chpt_2{
         void setFiveIntegers(string&);
         void setOneInteger(string&);
         void setMultiple(string&);
+        void setChar(char&);
+        void setFiveDigitString(string&);
+        void setPower(int&);
+        void setBMI(float&, float&);
+
 
         //Methods
         void captureValues(const float&, const float&);
