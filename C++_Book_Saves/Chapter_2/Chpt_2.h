@@ -28,6 +28,7 @@ class Chpt_2{
             num2{0},
             num3{0},
             num4{0},
+            num5{0},
             result{0},
             newSum{0},
             newProduct{0},
@@ -38,11 +39,18 @@ class Chpt_2{
             threeProd{0},
             smallest{0},
             largest{0};
-        int diameter{0},
+        int intNum1{0},
+            diameter{0},
             circumference{0},
             area{0};
-        string newType = "",
-               threeIntegers = "";
+        string strNum1 = "",
+               strNum2 = "",
+               newType = "",
+               oneInteger = "",
+               oddEven = "",
+               threeIntegers = "",
+               fiveIntegers = "",
+               multipleResult = "";
 
     public:
         //Constructors
@@ -64,6 +72,9 @@ class Chpt_2{
         int getDiameter()const;
         int getCircumference()const;
         int getArea()const;
+        string getFiveIntegers()const;
+        string getOddEven()const;
+        string getMultiple()const;
 
         //Setters
         void setSum(const float&, const float&);
@@ -73,12 +84,16 @@ class Chpt_2{
         void setType(string&);
         void setParseString(string&);
         void setRadius(int&);
+        void setFiveIntegers(string&);
+        void setOneInteger(string&);
+        void setMultiple(string&);
 
         //Methods
         void captureValues(const float&, const float&);
         void concatenate(const int&, const int&, const int&, const int&);
         void compare(const int&, const int&);
         void shapes();
+        void checkerboard();
 };
 
 #endif

@@ -72,6 +72,18 @@ int Chpt_2::getArea()const{
     return area;
 }
 
+string Chpt_2::getFiveIntegers()const{
+    return fiveIntegers;
+}
+
+string Chpt_2::getOddEven()const{
+    return oddEven;
+}
+
+string Chpt_2::getMultiple()const{
+    return multipleResult;
+}
+
 //setters
 void Chpt_2::setSum(const float& val1, const float& val2){
     newSum = val1 + val2;
@@ -94,7 +106,7 @@ void Chpt_2::setType(string& newFeature){
 }
 
 void Chpt_2::setParseString(string& newString){
-    //using isstringstream to parse the inoming string
+    //using istringstream to parse the incoming string
     threeIntegers = newString;
     //will perform the parsing
     istringstream threeInts(newString);
@@ -121,12 +133,66 @@ void Chpt_2::setParseString(string& newString){
     //find largest
     largest = *minmax.second;
 }
+//      2.23 **********************
+void Chpt_2::setFiveIntegers(string& newString){
+    //using istringstream to parse the incoming string
+    fiveIntegers = newString;
+    //will perform the parsing
+    istringstream fiveInts(newString);
+    string stringNum1 = "",
+           stringNum2 = "",
+           stringNum3 = "",
+           stringNum4 = "",
+           stringNum5 = "";
+    //read the result and convert into the three floats
+    fiveInts >> stringNum1 >> stringNum2 >> stringNum3 >> stringNum4 >> stringNum5;
+    num1 = stof(stringNum1);
+    num2 = stof(stringNum2);
+    num3 = stof(stringNum3);
+    num4 = stof(stringNum4);
+    num5 = stof(stringNum5);
 
+    //SORTING AND FINDING DESIRED VALUES FROM A VECTOR
+    //using minmax
+    vector<float> myVector = {num1, num2, num3, num4, num5};
+    auto minmax = minmax_element(myVector.begin(), myVector.end());
+    //find smallest
+    smallest = *minmax.first;
+    //find largest
+    largest = *minmax.second;
+}
+//    2.23 ****************
 //      2.20 *************************
 void Chpt_2::setRadius(int& r){
     diameter = 2*r;
     circumference = 2*3.14159*r;
     area = r*r*3.14159;
+}
+
+void Chpt_2::setOneInteger(string& i){
+    oneInteger = i;
+    istringstream oneInt(i);
+    string stringNum1 = "";
+    oneInt >> stringNum1;
+    intNum1 = stoi(stringNum1);
+    vector<int> myVector = {intNum1};
+    if(myVector[0] % 2 == 0){
+        oddEven = to_string(myVector[0]) + " is an even integer.";
+    } else {
+        oddEven = to_string(myVector[0]) + " is an odd integer.";
+    }
+}
+
+void Chpt_2::setMultiple(string& n1){
+    multipleResult = n1;
+    istringstream multiple(multipleResult);
+    multiple >> strNum1 >> strNum2;
+    vector<int> myVector = {stoi(strNum1), stoi(strNum2)};
+    if(myVector[0] % myVector[1] == 0){
+        multipleResult = strNum1 + " is a multiple of " + strNum2;
+    } else {
+        multipleResult = strNum1 + " is not a multiple of " + strNum2;
+    }
 }
 
 //Methods 
@@ -251,6 +317,22 @@ void Chpt_2::concatenate(const int& Inum1, const int& Inum2, const int& Inum3, c
        << string(1, '*') << "\n";
  }
 
+ void Chpt_2::checkerboard(){
+    for(int i{0}; i < 8; i++){
+        if(i % 2 == 0){
+            for(int j{0}; j < 8; j++){
+                cout << "* ";
+            }
+            cout << "\n";
+        } else {
+            for(int k{0}; k < 8; k++){
+                cout << " *";
+            }
+            cout << "\n";
+        }
+    }
+ }
+
 //I'm defining a script for this operator
 istream& operator >> (istream& is, Chpt_2& chpt2){
     //Greet and information from the user
@@ -333,17 +415,47 @@ istream& operator >> (istream& is, Chpt_2& chpt2){
     }else if (chpt2.newType == "Shapes"){
         cout << "                       2.21\n"
              << "This feature will generate four shapes on the screen.\n"
-             << "All of the logic is done under the hood, without loops."
+             << "All of the logic is done under the hood, without loops.\n"
              << "Next time the block will be in its own classs with loops.\n";
         
     }else if (chpt2.newType == "Largest to Smallest"){
+        cout << "                       2.23\n"
+             << "This feature will generate the smallest and largest integer\n"
+             << "out of five integers.\n"
+             << "Enter five integers: ";
+             cin.ignore();
+             string fiveIntegers = "";
+             cout << "Enter five different integers: ";
+             getline(cin, fiveIntegers);
+             chpt2.setFiveIntegers(fiveIntegers);
         //inside of istream
         
     }else if (chpt2.newType == "Odd or Even"){
+        //INSIDE OF ISTREAM
+        cout << "                       2.24\n"
+             << "This feature will tell the user if an integer is odd or even.\n"
+             << "Enter an integer: ";
+             cin.ignore();
+             string oneInteger = "";
+             //cout << "Enter an integer: ";
+             getline(cin, oneInteger);
+             chpt2.setOneInteger(oneInteger);
         
     }else if (chpt2.newType == "Multiple Of"){
+        //INSIDE OF ISTREAM
+        cout << "                       2.25\n"
+             << "This feature will read two integers and determine if the first\n"
+             << "integer is a multiple of the second.\n"
+             << "Enter two integers: ";
+             cin.ignore();
+             string twoIntegers = "";
+             getline(cin, twoIntegers);
+             chpt2.setMultiple(twoIntegers);
         
     }else if (chpt2.newType == "Checker Board"){
+        cout << "                       2.26\n"
+             << "This feature will display a checkerboard pattern.\n"
+             << "Simple for loops are generating the image.\n";
         
     }else if (chpt2.newType == "Char to Int"){
         
@@ -398,12 +510,20 @@ ostream& operator << (ostream& os, Chpt_2& display){
         display.shapes();
 
     } else if(display.newType == "Largest to Smallest"){
+        cout << "Five different integers: "
+             << display.getFiveIntegers() << "\n"
+             << "Smallest integer is: " << display.getSmallest() << "\n"
+             << "Largest integer is: " << display.getLargest() << "\n";
         //inside of ostream
     } else if(display.newType == "Odd or Even"){
+        //INSIDE OF OSTREAM
+        cout << display.getOddEven() << "\n";
 
     } else if(display.newType == "Multiple Of"){
+        cout << display.getMultiple() << "\n";
 
     } else if(display.newType == "Checker Board"){
+        display.checkerboard();
 
     } else if(display.newType == "Char to Int"){
 

@@ -119,7 +119,7 @@ using namespace std;
                 case 7:
                     type = "Largest to Smallest";
                     feature.setType(type);
-                    cout << "Largest to Smalest\n\n";
+                    cout << "          Largest to Smalest\n\n";
                     cin >> feature;
                     cout << "\n"
                          << feature
