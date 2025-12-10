@@ -29,6 +29,8 @@ class Chpt_2{
             num3{0},
             num4{0},
             num5{0},
+            num6{0},
+            num7{0},
             result{0},
             newSum{0},
             newProduct{0},
@@ -38,7 +40,15 @@ class Chpt_2{
             threeAvg{0},
             threeProd{0},
             smallest{0},
-            largest{0};
+            largest{0},
+            //  CARPOOL
+            totalMiles{0},
+            costPerGal{0},
+            milesPerGal{0},
+            parking{0},
+            tolls{0},
+            floatUber{0},
+            floatLyft{0};
         int intNum1{0},
             diameter{0},
             circumference{0},
@@ -53,7 +63,10 @@ class Chpt_2{
                oddEven = "",
                threeIntegers = "",
                fiveIntegers = "",
-               multipleResult = "";
+               multipleResult = "",
+               selfDrive = "",
+               uber = "",
+               lyft = "";
 
     public:
         //Constructors
@@ -83,6 +96,9 @@ class Chpt_2{
         int getSquare()const;
         int getCube()const;
         float getBMI()const;
+        string getSelfDrive()const;
+        string getShareUber()const;
+        string getShareLyft()const;
 
         //Setters
         void setSum(const float&, const float&);
@@ -99,6 +115,7 @@ class Chpt_2{
         void setFiveDigitString(string&);
         void setPower(int&);
         void setBMI(float&, float&);
+        void setSelfOrShare(string&);
 
 
         //Methods

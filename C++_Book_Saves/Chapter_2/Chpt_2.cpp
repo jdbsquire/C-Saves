@@ -103,6 +103,18 @@ int Chpt_2::getCube()const{
 float Chpt_2::getBMI()const{
     return num1;
 }
+
+string Chpt_2::getSelfDrive()const{
+    return selfDrive;
+}
+
+string Chpt_2::getShareUber()const{
+    return uber;
+}
+
+string Chpt_2::getShareLyft()const{
+    return lyft;
+}
 /************************************************************************************
  * **********************************************************************************
  * **********************************************************************************
@@ -242,6 +254,21 @@ void Chpt_2::setPower(int& p){
 
 void Chpt_2::setBMI(float& w, float& h){
     num1 = (w * 703) / (h*h);
+}
+
+void Chpt_2::setSelfOrShare(string& ride){
+    istringstream rideShare(ride);
+    rideShare >> totalMiles >> costPerGal >> milesPerGal >> parking
+              >> tolls >> floatUber >> floatLyft;
+    //float tm = stof(totalMiles);
+    vector<float> myVector = {(totalMiles), (costPerGal), (milesPerGal),
+                              (parking), (tolls), (floatUber), 
+                              (floatLyft)};
+    //temporary variable to hold the total from miles, cost, parking, tolls
+    float temp = (myVector[1] * myVector[2]) + myVector[3] + myVector[4];
+    selfDrive = to_string(temp);
+    uber = to_string(floatUber);
+    lyft = to_string(floatLyft);
 }
 /***************************************************************************************
  * ************************************************************************************
@@ -553,7 +580,15 @@ istream& operator >> (istream& is, Chpt_2& chpt2){
         chpt2.setBMI(chpt2.num2, chpt2.num3);
         //cout << chpt2.num2 << " " << chpt2.num3 << "\n";
     }else if (chpt2.newType == "Carpool"){
-        
+        cout << "                       2.31\n"
+             << "This feature will display the possible savings of carpooling\n"
+             << "to work instead of driving alone to work.\n"
+             << "Enter the total miles (round trip) driven per day \n"
+             << "cost per gallon of gas, average miles per gallon,\n"
+             << "parking fees and tolls, Uber and Lyft fees: ";
+             cin.ignore();
+             getline(cin, chpt2.strNum1);
+        chpt2.setSelfOrShare(chpt2.strNum1);
     }
 
     return is;
@@ -648,6 +683,19 @@ ostream& operator << (ostream& os, Chpt_2& display){
              << "Your BMI is: " << display.getBMI() << "\n";
 
     } else if(display.newType == "Carpool"){
+        cout << "Total miles driven per day: " << (display.totalMiles) << "\n"
+             << "Cost per gallon of gas:     " << display.costPerGal << "\n"
+             << "Average miles per gallon:   " << display.milesPerGal << "\n"
+             << "Parking fees:               " << display.parking << "\n"
+             << "Tolls per day:              " << display.tolls << "\n"
+             << "Total cost per day:         " << display.getSelfDrive() << "\n"
+             << "Taking Uber:                " << display.getShareUber() << "\n"
+             << "Taking Lyft:                " << display.getShareLyft() << "\n"
+             << "Amount saved driving self:  " << display.getSelfDrive() << "-" << display.getShareUber();
+             //float self = display.getSelfDrive();
+             //float uberShare
+             float saved = stof(display.getSelfDrive()) - stof(display.getShareUber());
+             cout << " =        $" << saved << "\n";
 
     }
 
