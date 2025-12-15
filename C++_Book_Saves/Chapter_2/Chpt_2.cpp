@@ -252,6 +252,7 @@ void Chpt_2::setPower(int& p){
     cube = pow(p, 3);
 }
 
+
 void Chpt_2::setBMI(float& w, float& h){
     num1 = (w * 703) / (h*h);
 }
@@ -589,6 +590,7 @@ istream& operator >> (istream& is, Chpt_2& chpt2){
              cin.ignore();
              getline(cin, chpt2.strNum1);
         chpt2.setSelfOrShare(chpt2.strNum1);
+        
     }
 
     return is;
