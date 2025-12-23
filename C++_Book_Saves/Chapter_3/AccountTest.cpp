@@ -16,6 +16,7 @@ int main(){
          << "Account two is: " << myAccount2.getName() 
          << " with a balance of: " << myAccount2.getBalance() << "\n";
 
+    //         ACCOUNT ONE
     cout << "Enter deposit amount for Account one: ";
     int depositAmount{0};
     cin >> depositAmount;
@@ -24,11 +25,23 @@ int main(){
 
     //display balances
     cout << " account one: " << myAccount.getName() << " balance is: $" 
-         << myAccount.getBalance();
+         << myAccount.getBalance()
          << "account2: " << myAccount2.getName() << " balance is: $"
          << myAccount2.getBalance();
+     // reinitialize depositAmount
+     depositAmount = 0;
     
+     //        ACCOUNT TWO
+     cout << "Enter deposit amount for Account two: ";
+     cin >> depositAmount;
+     cout << "adding " << depositAmount << " to account two balance\n";
+     myAccount2.deposit(depositAmount);// method added deposit to myAccount2
 
+     //display new balances
+     cout << " account one: " << myAccount.getName() << " balance is: $"
+          << myAccount.getBalance()
+          << " account two: " << myAccount2.getName() << " balance is: $"
+          << myAccount2.getBalance();
 
     //show that the initial value of myAccount's name is the empty string
     cout << "Initial account name is: " << myAccount.getName();
