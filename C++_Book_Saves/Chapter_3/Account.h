@@ -38,7 +38,7 @@ class Account{
         }
         
         //method to deposit only valid amounts to the balance
-        void deposit(int depositAmount){
+        void deposit(int& depositAmount){
             if(depositAmount > 0)
                 balance = balance + depositAmount;
         }
