@@ -8,20 +8,25 @@ using namespace std;
 
 int main(){
     Account myAccount("James Boyce", 50);//create Account object myAccount
-    Account myAccount2{"John Doe", -7};
+    Account myAccount2{"John Doe", 0};
     Account myAccount3("", 0);
     //testing initialization
-    cout << "Account one is: " << myAccount.getName() 
+    cout << "Account one is " << myAccount.getName() 
          << " with a balance of: " << myAccount.getBalance() << "\n"
-         << "Account two is: " << myAccount2.getName() 
+         << "Account two is " << myAccount2.getName() 
          << " with a balance of: " << myAccount2.getBalance() << "\n\n";
 
     //         ACCOUNT ONE
     cout << "Enter deposit amount for Account one: ";
-    int depositAmount{0};
+    int depositAmount{0},
+        withdrawalAmount{0};
     cin >> depositAmount;
     cout << "Adding $" << depositAmount << " to account one balance\n\n";
     myAccount.deposit(depositAmount);//method to add deposit amount to the balance
+    cout << "Enter withdrawal amount from Account one: ";
+    cin >> withdrawalAmount;
+    cout << "Withdrawaling $" << withdrawalAmount << " from account one balance\n\n";
+    myAccount.withdrawal(withdrawalAmount);
 
     //display balances
     cout << "Account one: " << myAccount.getName() << " balance is: $" 
@@ -30,12 +35,17 @@ int main(){
          << myAccount2.getBalance() << "\n\n";
      // reinitialize depositAmount
      depositAmount = 0;
-    
+     withdrawalAmount = 0;
+
      //        ACCOUNT TWO
      cout << "Enter deposit amount for Account two: ";
      cin >> depositAmount;
      cout << "Adding $" << depositAmount << " to account two balance\n\n";
      myAccount2.deposit(depositAmount) ;// method added deposit to myAccount2
+     cout << "Enter withdrawal amount from Account two: ";
+     cin >> withdrawalAmount;
+     cout << "Withdrawaling $" << withdrawalAmount << " from account two balance\n\n";
+     myAccount2.withdrawal(withdrawalAmount);
 
      //display new balances
      cout << "Account one: " << myAccount.getName() << " balance is: $"
@@ -54,7 +64,7 @@ int main(){
     myAccount3.setName(theName);// put theName in myAccount
 
     //display the name stored in object myAccount
-    cout << "Name in object myAccount is: "
+    cout << "\nName in object myAccount is: "
          << myAccount.getName() << endl;
 
     return 0;

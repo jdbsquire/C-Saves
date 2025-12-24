@@ -12,10 +12,6 @@ class Account{
         string name;
         int balance{0};
     public:
-        //constructor initializes data member 'name' with the param accountName
-        //never forget the type in the argument whenever you pass something to a function
-        //this allows initialization of a private member when the instance is created in main
-        //also pay attention to the signature, as it must match when created in main!
         //CONSTRUCTOR
         //use explicit for all single-parameter constructors
         Account(string accountName, int initialBalance)//param list, scope preserved here only
@@ -41,5 +37,14 @@ class Account{
         void deposit(int& depositAmount){
             if(depositAmount > 0)
                 balance = balance + depositAmount;
+        }
+
+        // withdrawal method
+        void withdrawal(int& withdrawalAmount){
+            if(withdrawalAmount > balance){
+                cout << "Withdrawal amount exceeds account balance\n";
+            } else {
+                balance = balance - withdrawalAmount;
+            }
         }
 };
